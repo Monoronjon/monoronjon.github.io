@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monoronjon Dutta - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .section-divider {
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.25rem;
+        }
+        .text-small {
+            font-size: 0.8rem;
+        }
+        /* Custom scrollbar styling for better visibility */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+        <div class="bg-white rounded-xl shadow-xl p-8 md:p-12 lg:p-16 flex flex-col space-y-8">
+            <!-- Header Section with Photo -->
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between space-y-4 md:space-y-0">
+                <div class="flex-grow space-y-1">
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">Monoronjon Dutta</h1>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-1">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Dhaka, Bangladesh
+                    </p>
+                    <p class="text-sm text-gray-600">Graduate, Bachelor of Science in Computer Science & Engineering (Class of 2024)</p>
+                    <p class="text-sm text-gray-600">Faculty of Science & Information Technology</p>
+                    <p class="text-sm text-gray-600">Daffodil International University | Dhaka, Bangladesh</p>
+                </div>
+                <div class="flex-shrink-0 ml-9 md:ml-8">
+                    <!-- Adjusted size to be larger -->
+                    <img src="images/Monoronjon.jpg" alt="Your Photo" class="w-48 h-48 rounded-full shadow-lg">
+                </div>
+            </div>
+
+            <!-- Contact and Links Section -->
+            <div class="space-y-1 text-sm text-gray-600">
+                <p>monoronjon [dot] cse [at] gmail [dot] com</p>
+<!--                 <p>Lab address: 2000 Luddy Center for AI</p>
+                <p>Bloomington, IN 47408</p>
+                <p>djcran@iu.edu</p>
+                <p>Office hours by appointment via <a href="#" class="text-blue-600 hover:underline">Zoom</a></p> -->
+                <!-- Updated links with user-provided URLs and target="_blank" -->
+                <div class="mt-4 flex space-x-4 text-blue-600">
+                    <a href="https://www.linkedin.com/in/monoronjon-dutta/" target="_blank" class="hover:underline">LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=Tu4Tn7UAAAAJ&hl=en" target="_blank" class="hover:underline">Google Scholar</a>
+                    <a href="https://www.researchgate.net/profile/Monoronjon-Dutta" target="_blank" class="hover:underline">ResearchGate</a>
+                </div>
+            </div> 
+
+            <!-- News Section with Scrollbar -->
+            <section>
+                <h2 class="text-xl font-bold text-gray-900 section-divider">News</h2>
+                <!-- Added max-h-64, overflow-y-auto, and custom-scrollbar class -->
+                <ul class="text-sm text-gray-700 list-disc list-inside ml-4 space-y-1 max-h-64 overflow-y-auto custom-scrollbar">
+                    <li><span class="font-bold">May, 2025:</span> Recognition of Scholarly Publication in Reputed Indexed Journal.</li>
+                    <li><span class="font-bold">Feb, 2025:</span> Published a first-author Q1 journal paper on Acute Lymphoblastic Leukemia Classification in IEEE Access!</li>
+                    <li><span class="font-bold">Jan, 2025:</span> Published two conference papers as first author at ECCE-2025!</li>
+                    <li><span class="font-bold">Oct, 2024:</span> Published a First-author Q1 journal paper on Rice Leaf Disease Classification in Technologies!</li>
+                    <li><span class="font-bold">May, 2024:</span> Published a Second-author Q2 journal paper on Alzheimer's disease classification in Informatics in Medicine Unlocked!</li>
+                    <li><span class="font-bold">May, 2024:</span> Published a first-author Q3 journal paper on Breast cancer classification in Bulletin of Electrical Engineering and Informatics!</li>
+                    <li><span class="font-bold">Feb, 2024:</span> Successfully defended Bachelor of Science (B.Sc.) final year thesis in Computer Science and Engineering.</li>
+                    <li><span class="font-bold">Nov, 2023:</span> Second research paper accepted at the ICCIT-2023 Conference!</li>
+                    <li><span class="font-bold">Jul, 2023:</span> First research paper accepted at the BIM-2023 Conference!</li>
+                    <li><span class="font-bold">Feb, 2023:</span> Joined as Research Assistant (RA) at the Multidisciplinary Action Research (MARS) Lab, DIU.</li>
+                    <li><span class="font-bold">Sep, 2022:</span> Joined as Lab Teaching Assistant for the Machine Learning and Data Mining course under the supervision of Dr. Atikur Rahaman.</li>
+                    <li><span class="font-bold">May, 2022:</span> Third-time recipient of the Talent Scholarship for academic excellence (Summer- 2022)</li>
+                    <li><span class="font-bold">Apr, 2022:</span> Participated in the DIU Robotics and Project Competition</li>
+                    <li><span class="font-bold">Jan, 2022:</span> Second-time recipient of the Talent Scholarship for academic excellence (Spring- 2022)</li>
+                    <li><span class="font-bold">Sep, 2021:</span> First-time recipient of the Talent Scholarship for academic excellence (Fall- 2021)</li>
+                </ul>
+            </section>
+            
+            <!-- Research Section -->
+            <section>
+                <h2 class="text-xl font-bold text-gray-900 section-divider">Research</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mt-2">
+                    My research interests are in Machine Learning, Deep Learning, Computer Vision, and Explainable AI.
+                </p>
+            </section>
+            
+            <!-- Recent Publications Section -->
+            <section>
+                <h2 class="text-xl font-bold text-gray-900 section-divider">Selected Publications</h2>
+                <ul class="text-sm text-gray-700 list-disc list-inside ml-4 space-y-2">
+                    <p>For a comprehensive list of my work, please visit my <a href="https://scholar.google.com/citations?user=Tu4Tn7UAAAAJ&hl=en" class="text-blue-600 hover:underline">Google Scholar</a> profile.</p>
+                    <li>
+                        <span class="font-semibold"> LEU3: An Attention Augmented-based Model for Acute Lymphoblastic Leukemia Classification. </span>
+                        <p class="text-small"> <u>M. Dutta</u>, M. U. Mojumdar et. al., <i>EEE Access</i>, 2025, <a href="https://ieeexplore.ieee.org/document/10890953/" class="text-blue-600 hover:underline">DOI</a></p>
+                    </li>
+
+                    <li>
+                        <span class="font-semibold"> An interpretable machine learning-based breast cancer classification using XGBoost, SHAP, and LIME. </span>
+                        <p class="text-small"><u>M. Dutta</u>, K. Md. Mehedi Hasan et. al., <i>Bulletin of Electrical Engineering and Informatics</i>, 2024, <a href="https://doi.org/10.11591/eei.v13i6.7866" class="text-blue-600 hover:underline">DOI</a></p>
+                    </li>
+
+                    <li>
+                        <span class="font-semibold"> ALSA-3: Customized CNN model through ablation study for Alzheimer's disease classification. </span>
+                        <p class="text-small">Md Assaduzzaman, <u>M. Dutta</u> et. al., <i>Informatics in Medicine Unlocked</i>, 2024, <a href="https://doi.org/10.1016/j.imu.2024.101584" class="text-blue-600 hover:underline">DOI</a></p>
+                    </li>
+
+                    <li>
+                        <span class="font-semibold"> Rice Leaf Disease Classification—A Comparative Approach Using Convolutional Neural Network. </span>
+                        <p class="text-small"><u>M. Dutta</u>, Islam Sujan et. al., <i>Technologies</i>, 2024, <a href="https://doi.org/10.3390/technologies12110214" class="text-blue-600 hover:underline">DOI</a></p>
+                    </li>
+                    <!-- Add more publications as needed -->
+                </ul>
+            </section>
+
+            <!-- Education Section -->
+            <section>
+                <h2 class="text-xl font-bold text-gray-900 section-divider">Education</h2>
+                <div class="mt-4 space-y-4">
+                    <!-- Research Assistant -->
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-900">Daffodil International University | Dhaka, Bangladesh</h3>
+                            <p class="text-sm text-gray-600">Jan 2020 – Mar 2024</p>
+                        </div>
+                        <p class="text-sm text-gray-600"> Bachelor of Science in Computer Science & Engineering</p>
+                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
+
+                            <li>Relevant Coursework: Data Mining and Machine Learning, Artificial Intelligence, Digital Image Processing, Research and Innovation</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Experience Section -->
+            <section>
+                <h2 class="text-xl font-bold text-gray-900 section-divider">Experience</h2>
+                <div class="mt-4 space-y-4">
+                    <!-- Research Assistant -->
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-900">Research Assistant (RA)</h3>
+                            <p class="text-sm text-gray-600">Feb 15, 2023 - Present</p>
+                        </div>
+                        <p class="text-sm text-gray-600">Multidisciplinary Action Research (MARS) Lab, Daffodil International University | Dhaka, Bangladesh</p>
+                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
+                            <li>Published in two journals and collaborated with international researchers.</li>
+                            <li>Mentored undergraduates in data analysis, model evaluation, and manuscript writing.</li>
+                        </ul>
+                    </div>
+                    <!-- Lab Teaching Assistant -->
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-900">Lab Teaching Assistant (Lab-TA)</h3>
+                            <p class="text-sm text-gray-600">Fall 2022</p>
+                        </div>
+                        <p class="text-sm text-gray-600">Faculty of Science and Technology, Dept. of CSE | Daffodil International University, Dhaka, Bangladesh</p>
+                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
+                            <li>Conducted lab sessions on ML and guided students in Python, TensorFlow, and Keras.</li>
+                            <li>Provided technical support in debugging and evaluating student projects.</li>
+                            <li>Course Teacher: Associate Professor Dr. Md. Atiqur Rahman</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+            <p class="text-sm text-gray-600 mt-2 text-right">Last update: 27/08/2025</p>
+    </div>
+
+               
+
+            
+</body>
+</html>
