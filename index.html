@@ -1,234 +1,506 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monoronjon Dutta - Portfolio</title>
+    <title>Monoronjon Dutta | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0f172a',
+                            card: 'rgba(255, 255, 255, 0.03)',
+                            border: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        light: {
+                            bg: '#f8fafc',
+                            card: '#ffffff',
+                            border: '#e2e8f0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .section-divider {
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.25rem;
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 5px;
         }
-        .text-small {
-            font-size: 0.8rem;
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
         }
-        /* Custom scrollbar styling for better visibility */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #3b82f6;
             border-radius: 10px;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
+
+        .dark .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+
+        .light .glass-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+        }
+
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #3b82f6;
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-light-bg dark:bg-dark-bg text-slate-600 dark:text-slate-300">
 
-    <div class="container mx-auto p-4 md:p-8 lg:p-12">
-        <div class="bg-white rounded-xl shadow-xl p-8 md:p-12 lg:p-16 flex flex-col space-y-8">
-            <!-- Header Section with Photo -->
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between space-y-4 md:space-y-0">
-                <div class="flex-grow space-y-1">
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">Monoronjon Dutta</h1>
-                    <p class="text-sm text-gray-600 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-1">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        Dhaka, Bangladesh
-                    </p>
-                    <p class="text-sm text-gray-600">Graduate, Bachelor of Science in Computer Science & Engineering (Class of 2024)</p>
-                    <p class="text-sm text-gray-600">Faculty of Science & Information Technology</p>
-                    <p class="text-sm text-gray-600">Daffodil International University | Dhaka, Bangladesh</p>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-slate-200 dark:border-white/5 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-slate-900 dark:text-white font-bold text-xl tracking-tighter"><span class="text-blue-500"></span></div>
+            
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#about" class="hover:text-blue-600 dark:hover:text-white transition">About</a>
+                    <a href="#news" class="hover:text-blue-600 dark:hover:text-white transition">News</a>
+                    <a href="#research" class="hover:text-blue-600 dark:hover:text-white transition">Research</a>
+                    <a href="#experience" class="hover:text-blue-600 dark:hover:text-white transition">Experience</a>
                 </div>
-                <div class="flex-shrink-0 ml-9 md:ml-8">
-                    <!-- Adjusted size to be larger -->
-                    <img src="images/Monoronjon.jpg" alt="Your Photo" class="w-44 h-45 rounded-full shadow-lg">
+
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 transition-all">
+                    <i id="theme-toggle-dark-icon" data-lucide="moon" class="w-5 h-5 hidden"></i>
+                    <i id="theme-toggle-light-icon" data-lucide="sun" class="w-5 h-5 hidden"></i>
+                </button>
+
+                <a href="https://www.linkedin.com/in/monoronjon-dutta/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-2 py-2 rounded-lg transition inline-flex items-center gap-2">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section id="about" class="grid md:grid-cols-12 gap-12 items-center mb-24">
+            <div class="md:col-span-4 lg:col-span-3">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-25"></div>
+                    <img src="images/Monoronjon.jpg" alt="Monoronjon Dutta" 
+                         onerror="this.src='https://ui-avatars.com/api/?name=Monoronjon+Dutta&size=300&background=0f172a&color=fff'"
+                         class="h-64 relative rounded-2xl w-full aspect-square object-cover border border-slate-200 dark:border-white/10 shadow-2xl">
+                         
                 </div>
             </div>
-
-            <!-- Contact and Links Section -->
-            <div class="space-y-1 text-sm text-gray-600">
-                <p>monoronjon [dot] cse [at] gmail [dot] com</p>
-<!--                 <p>Lab address: 2000 Luddy Center for AI</p>
-                <p>Bloomington, IN 47408</p>
-                <p>djcran@iu.edu</p>
-                <p>Office hours by appointment via <a href="#" class="text-blue-600 hover:underline">Zoom</a></p> -->
-                <!-- Updated links with user-provided URLs and target="_blank" -->
-                <div class="mt-4 flex space-x-4 text-blue-600">
+            <div class="md:col-span-8 lg:col-span-9 space-y-6">
+                <h1 class="text-5xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
+                    Monoronjon Dutta
+                </h1>
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+                    Research Assistant at <span class="text-blue-600 dark:text-blue-400 font-semibold">Charles Sturt University</span>, Australia. <br>
+                    My research interests primarily focus on Deep learning, Computer Vision, Multimodal and Generative Artificial Intelligence, Explainable AI.
+                </p>
+<!--                 <p>
+                    Email: monoronjon [dot] cse [at] gmail [dot] com
+                </p> -->
+                <p class="mt-4 flex space-x-4 text-blue-600">
                     <a href="https://www.linkedin.com/in/monoronjon-dutta/" target="_blank" class="hover:underline">LinkedIn</a>
                     <a href="https://scholar.google.com/citations?user=Tu4Tn7UAAAAJ&hl=en" target="_blank" class="hover:underline">Google Scholar</a>
                     <a href="https://www.researchgate.net/profile/Monoronjon-Dutta" target="_blank" class="hover:underline">ResearchGate</a>
-                </div>
-            </div> 
-
-            <!-- News Section with Scrollbar -->
-            <section>
-                <h2 class="text-xl font-bold text-gray-900 section-divider">News</h2>
-                <!-- Added max-h-64, overflow-y-auto, and custom-scrollbar class -->
-                <ul class="text-sm text-gray-700 list-disc list-inside ml-4 space-y-1 max-h-64 overflow-y-auto custom-scrollbar">
-                    <li><span class="font-bold">Jan, 2026:</span> Joined as Research Assistant (RA) at Charles Sturt University | Bathurst, Australia </li>
-                    <li><span class="font-bold">Jan, 2026:</span> Joined as Research Intern - Explainable AI at ELITE Research Lab LLC | Queens, NY, USA</li>
-                    <li><span class="font-bold">May, 2025:</span> Recognition of Scholarly Publication in Reputed Indexed Journal.</li>
-                    <li><span class="font-bold">Feb, 2025:</span> Published a first-author Q1 journal paper on Acute Lymphoblastic Leukemia Classification in IEEE Access!</li>
-                    <li><span class="font-bold">Jan, 2025:</span> Published two conference papers as first author at ECCE-2025!</li>
-                    <li><span class="font-bold">Oct, 2024:</span> Published a First-author Q1 journal paper on Rice Leaf Disease Classification in Technologies!</li>
-                    <li><span class="font-bold">May, 2024:</span> Published a Second-author Q2 journal paper on Alzheimer's disease classification in Informatics in Medicine Unlocked!</li>
-                    <li><span class="font-bold">May, 2024:</span> Published a first-author Q3 journal paper on Breast cancer classification in Bulletin of Electrical Engineering and Informatics!</li>
-                    <li><span class="font-bold">Feb, 2024:</span> Successfully defended Bachelor of Science (B.Sc.) final year thesis in Computer Science and Engineering.</li>
-                    <li><span class="font-bold">Nov, 2023:</span> Second research paper accepted at the ICCIT-2023 Conference!</li>
-                    <li><span class="font-bold">Jul, 2023:</span> First research paper accepted at the BIM-2023 Conference!</li>
-                    <li><span class="font-bold">Jul, 2023:</span> Joined as Research Assistant (RA) at the Multidisciplinary Action Research (MARS) Lab, DIU.</li>
-                    <li><span class="font-bold">Sep, 2022:</span> Joined as Lab Teaching Assistant for the Machine Learning and Data Mining course under the supervision of Dr. Atikur Rahaman.</li>
-                    <li><span class="font-bold">May, 2022:</span> Third-time recipient of the Talent Scholarship for academic excellence (Summer- 2022)</li>
-                    <li><span class="font-bold">Apr, 2022:</span> Participated in the DIU Robotics and Project Competition</li>
-                    <li><span class="font-bold">Jan, 2022:</span> Second-time recipient of the Talent Scholarship for academic excellence (Spring- 2022)</li>
-                    <li><span class="font-bold">Sep, 2021:</span> First-time recipient of the Talent Scholarship for academic excellence (Fall- 2021)</li>
-                </ul>
-            </section>
-            
-            <!-- Research Section -->
-            <section>
-                <h2 class="text-xl font-bold text-gray-900 section-divider">Research</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mt-2">
-                    My research interests are in Machine Learning, Deep Learning, Computer Vision, and Explainable AI.
                 </p>
-            </section>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-medium">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        Available for Collaboration
+                    </div>
+                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-medium">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                        Dhaka, Bangladesh
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-12">
             
-            <!-- Recent Publications Section -->
-            <section>
-                <h2 class="text-xl font-bold text-gray-900 section-divider">Selected Publications</h2>
-                <ul class="text-sm text-gray-700 list-disc list-inside ml-4 space-y-2">
-                    <p>For a comprehensive list of my work, please visit my <a href="https://scholar.google.com/citations?user=Tu4Tn7UAAAAJ&hl=en" class="text-blue-600 hover:underline">Google Scholar</a> profile.</p>
-                    <li>
-                        <span class="font-semibold"> LEU3: An Attention Augmented-based Model for Acute Lymphoblastic Leukemia Classification. </span>
-                        <p class="text-small"> <u>M. Dutta</u>, M. U. Mojumdar et. al., <i>EEE Access</i>, 2025, <a href="https://ieeexplore.ieee.org/document/10890953/" class="text-blue-600 hover:underline">DOI</a></p>
-                    </li>
+            <!-- Left Column: News Section -->
+            <div class="lg:col-span-1 space-y-12">
+               <section id="news" class="space-y-6">
+                        <h2 class="text-xl font-bold text-slate-900 dark:text-white section-header flex items-center gap-2">
+                            <i data-lucide="rss" class="w-5 h-5 text-blue-500"></i>
+                            Latest Updates
+                        </h2>
 
-                    <li>
-                        <span class="font-semibold"> An interpretable machine learning-based breast cancer classification using XGBoost, SHAP, and LIME. </span>
-                        <p class="text-small"><u>M. Dutta</u>, K. Md. Mehedi Hasan et. al., <i>Bulletin of Electrical Engineering and Informatics</i>, 2024, <a href="https://doi.org/10.11591/eei.v13i6.7866" class="text-blue-600 hover:underline">DOI</a></p>
-                    </li>
+                        <div class="glass-card rounded-2xl p-5 max-h-[500px] overflow-y-auto custom-scroll space-y-6">
 
-                    <li>
-                        <span class="font-semibold"> ALSA-3: Customized CNN model through ablation study for Alzheimer's disease classification. </span>
-                        <p class="text-small">Md Assaduzzaman, <u>M. Dutta</u> et. al., <i>Informatics in Medicine Unlocked</i>, 2024, <a href="https://doi.org/10.1016/j.imu.2024.101584" class="text-blue-600 hover:underline">DOI</a></p>
-                    </li>
+                            <!-- Jan 2026 -->
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">January 2026</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Joined as <strong>Research Assistant (RA)</strong> at Charles Sturt University | Bathurst, Australia
+                                </p>
+                            </div>
 
-                    <li>
-                        <span class="font-semibold"> Rice Leaf Disease Classification—A Comparative Approach Using Convolutional Neural Network. </span>
-                        <p class="text-small"><u>M. Dutta</u>, Islam Sujan et. al., <i>Technologies</i>, 2024, <a href="https://doi.org/10.3390/technologies12110214" class="text-blue-600 hover:underline">DOI</a></p>
-                    </li>
-                    <!-- Add more publications as needed -->
-                </ul>
-            </section>
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">January 2026</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Joined as <strong>Research Intern – Explainable AI</strong> at ELITE Research Lab LLC | Queens, NY, USA
+                                </p>
+                            </div>
 
-            <!-- Education Section -->
-            <section>
-                <h2 class="text-xl font-bold text-gray-900 section-divider">Education</h2>
-                <div class="mt-4 space-y-4">
-                    <!-- Research Assistant -->
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="font-semibold text-gray-900">Daffodil International University | Dhaka, Bangladesh</h3>
-                            <p class="text-sm text-gray-600">Jan 2020 – Mar 2024</p>
+                            <!-- May 2025 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">May 2025</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Received <strong>Recognition of Scholarly Publication</strong> in a reputed indexed journal.
+                                </p>
+                            </div>
+
+                            <!-- Feb 2025 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">February 2025</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Published a <strong>first-author Q1 journal paper</strong> on Acute Lymphoblastic Leukemia classification in <i>IEEE Access</i>.
+                                </p>
+                            </div>
+
+                            <!-- Jan 2025 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">January 2025</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Published <strong>two first-author conference papers</strong> at <strong>ECCE-2025</strong>.
+                                </p>
+                            </div>
+
+                            <!-- Oct 2024 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">October 2024</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Published a <strong>first-author Q1 journal paper</strong> on Rice Leaf Disease classification in <i>Technologies</i>.
+                                </p>
+                            </div>
+
+                            <!-- May 2024 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">May 2024</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Published a <strong>second-author Q2 journal paper</strong> on Alzheimer’s disease classification in <i>Informatics in Medicine Unlocked</i>.
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">May 2024</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Published a <strong>first-author Q3 journal paper</strong> on Breast Cancer classification in <i>Bulletin of Electrical Engineering and Informatics</i>.
+                                </p>
+                            </div>
+
+                            <!-- Feb 2024 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">February 2024</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Successfully defended <strong>B.Sc. final year thesis</strong> in Computer Science and Engineering.
+                                </p>
+                            </div>
+
+                            <!-- Nov 2023 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">November 2023</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Second research paper accepted at the <strong>ICCIT-2023</strong> Conference.
+                                </p>
+                            </div>
+
+                            <!-- Jul 2023 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">July 2023</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    First research paper accepted at the <strong>BIM-2023</strong> Conference.
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">July 2023</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Joined as <strong>Research Assistant</strong> at the Multidisciplinary Action Research (MARS) Lab, DIU.
+                                </p>
+                            </div>
+
+                            <!-- Sep 2022 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">September 2022</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Appointed as <strong>Lab Teaching Assistant</strong> for Machine Learning & Data Mining under Dr. Atikur Rahaman.
+                                </p>
+                            </div>
+
+                            <!-- Scholarships & Activities -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">May 2022</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Third-time recipient of the <strong>Talent Scholarship</strong> for academic excellence (Summer 2022).
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">April 2022</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Participated in the <strong>DIU Robotics and Project Competition</strong>.
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">January 2022</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Second-time recipient of the <strong>Talent Scholarship</strong> (Spring 2022).
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">September 2021</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    First-time recipient of the <strong>Talent Scholarship</strong> (Fall 2021).
+                                </p>
+                            </div>
+
                         </div>
-                        <p class="text-sm text-gray-600"> Bachelor of Science in Computer Science & Engineering</p>
-                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
+                    </section>
+<!--                 <section id="skills" class="space-y-6">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white section-header">Tech Stack</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-lg">Python</span>
+                        <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-lg">PyTorch</span>
+                        <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-lg">SHAP/LIME</span>
+                        <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-lg">MATLAB</span>
+                        <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-lg">LaTeX</span>
+                    </div>
+                </section> -->
+            </div>
 
-                            <li>Relevant Coursework: Data Mining and Machine Learning, Artificial Intelligence, Digital Image Processing, Research and Innovation</li>
+            <!-- Right Column: Experience & Research -->
+            <div class="lg:col-span-2 space-y-16">
+                
+                <section id="experience" class="space-y-8">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white section-header flex items-center gap-2">
+                        <i data-lucide="briefcase" class="w-6 h-6 text-blue-500"></i>
+                        Work Experience
+                    </h2>
+                    <div class="space-y-10">
+                        <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-[2px] before:h-full before:bg-slate-200 dark:before:bg-white/10">
+                            <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 shadow-lg"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Research Assistant (RA)</h3>
+                                <span class="text-xs font-bold text-slate-400">Jan 2026 — Present</span>
+                            </div>
+                            <p class="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-3">Charles Sturt University • Australia</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">I am here working on advanced AI research covering Generative AI, Deep Learning, Computer Vision, and Explainable AI
+under expert academic supervision.</p>
+                        </div>
 
-                        </ul>
+                        <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-[2px] before:h-full before:bg-slate-200 dark:before:bg-white/10">
+                            <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-400"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Research Intern - Explainable AI</h3>
+                                <span class="text-xs font-bold text-slate-400">Jan 2026 — Present</span>
+                            </div>
+                            <p class="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-3">ELITE Research Lab LLC • New York, USA</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">I am collaborating remotely with the Explainable AI and multimodal AI research team on data analysis, including coding,
+results reporting, verification, model development, and manuscript preparation.</p>
+                        </div>
+                        <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-[2px] before:h-full before:bg-slate-200 dark:before:bg-white/10">
+                            <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-400"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Research Assistant (RA)</h3>
+                                <span class="text-xs font-bold text-slate-400">Jul 2023 — Sep 2025 </span>
+                            </div>
+                            <p class="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-3">Multidisciplinary Action Research (MARS) Lab, Daffodil International University • Dhaka, Bangladesh</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">I worked on Deep Learning and Explainable AI research projects. I also collaborated with foreign researchers and co-authored multiple papers. Alongside my work, I mentored junior members, helping them with data analysis and manuscript preparation.</p>
+                        </div>
+
+                        <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-[2px] before:h-full before:bg-slate-200 dark:before:bg-white/10">
+                            <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-400"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Lab Teaching Assistant (Lab-TA)</h3>
+                                <span class="text-xs font-bold text-slate-400">Fall 2022</span>
+                            </div>
+                            <p class="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-3">FSIT, Dept. of CSE | Daffodil International University, • Dhaka, Bangladesh</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">I worked under the supervision of Dr. Md. Atiqur Rahman, assisting students with problems in the Machine
+Learning and Data Mining lab. I was also responsible for collecting and checking their lab reports.</p>
+                        </div>
+                        
                     </div>
-                </div>
-            </section>
+                </section>
 
 
-            <!-- Experience Section -->
-            <section>
-                <h2 class="text-xl font-bold text-gray-900 section-divider">Experience</h2>
-                <div class="mt-4 space-y-4">
-                    <!-- RA at CSU -->
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="font-semibold text-gray-900">Research Assistant (RA) </h3>
-                            <p class="text-sm text-gray-600">Jan 2026 - Present</p>
+
+                <section id="education" class="space-y-8">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white section-header flex items-center gap-2">
+                        <i data-lucide="graduation-cap" class="w-6 h-6 text-blue-500"></i>
+                        Education
+                    </h2>
+                    <div class="space-y-10">
+                        <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:w-[2px] before:h-full before:bg-slate-200 dark:before:bg-white/10">
+                            <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-blue-500 shadow-lg"></div>
+                            <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Bachelor of Science in Computer Science & Engineering</h3>
+                                <span class="text-xs font-bold text-slate-400">2020 - 2024 <br> Grade: ~92%</span>
+                            </div>
+                            <div>
+                            <p class="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-3">Daffodil International University • Dhaka, Bangladesh</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Thesis: Retinal Fundus image classification using Generative adversarial Networks (Score: 100%).</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Coursework: Data Mining and Machine Learning, Artificial Intelligence, Digital Image Processing, Research and Innovation</p>
+                            </div>
+
+                </section>
+
+                <section id="research" class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white section-header flex items-center gap-2">
+                        <i data-lucide="award" class="w-6 h-6 text-blue-500"></i>
+                        Publications
+                    </h2>
+                        <div class="glass-card rounded-2xl p-5 max-h-[500px] overflow-y-auto custom-scroll space-y-6">
+
+                            <!-- Jan 2026 -->
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">2025</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    LEU3: An Attention Augmented-based Model for Acute Lymphoblastic Leukemia Classification. <br> 
+                                    IEEE Access | <a href="https://ieeexplore.ieee.org/document/10890953" target="_blank" class="hover:underline">[Link]</a> 
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">2025</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Advancing Kidney Disease Diagnosis Using Convolutional Neural Networks on Medical Imaging. <br>
+                                    ECCE - Conferences | <a href="https://ieeexplore.ieee.org/document/11013262" target="_blank" class="hover:underline">[Link]</a> 
+                                </p>
+                            </div>
+
+                            <!-- May 2025 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">2025</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Retinal Fundus image classification using Generative adversarial Networks. <br>
+                                    ECCE - Conferences | <a href="https://ieeexplore.ieee.org/document/11013430" target="_blank" class="hover:underline">[Link]</a> 
+                                </p>
+                            </div>
+
+                            <!-- Feb 2025 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">2025</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    An interpretable machine learning-based breast cancer classification using XGBoost, SHAP, and LIME. <br>
+                                    Bulletin of Electrical Engineering and Informatics | <a href="https://beei.org/index.php/EEI/article/view/7866" target="_blank" class="hover:underline">[Link]</a> 
+                                </p>
+                            </div>
+
+                            <!-- Jan 2025 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest"> 2024</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    ALSA-3: Customized CNN model through ablation study for Alzheimer's disease classification.<br>
+                                    Informatics in Medicine Unlocked | <a href="https://doi.org/10.1016/j.imu.2024.101584" target="_blank" class="hover:underline">[Link]</a>
+                                </p>
+                            </div>
+
+                            <!-- Oct 2024 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest"> 2024</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Rice Leaf Disease Classification—A Comparative Approach Using CNN <br>
+                                    Technologies | <a href="https://doi.org/10.3390/technologies12110214" target="_blank" class="hover:underline">[Link]</a>
+                                </p>
+                            </div>
+
+                            <!-- May 2024 -->
+                            <div class="space-y-1 pt-4 border-t border-slate-200 dark:border-white/5">
+                                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">2024</span>
+                                <p class="text-sm text-slate-700 dark:text-slate-300">
+                                    Tuberculosis Disease Detection from Chest X-rays Using Deep Learning Techniques. <br>
+                                    ICCIT Conferences | <a href="https://ieeexplore.ieee.org/document/10441031" target="_blank" class="hover:underline">[Link]</a>
+                                </p>
+                            </div>
                         </div>
-                        <p class="text-sm text-gray-600">Charles Sturt University | Bathurst, Australia</p>
-                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
-                        <li class="flex items-start mb-2">
-                          <span class="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-700"></span>
-                          <span class="text-sm text-gray-700 leading-relaxed">
-                            I am here working on advanced AI research covering Generative AI, Deep Learning, Computer Vision, and Explainable AI <br> under expert academic supervision.
-                          </span>
-                        </li>
-                        </ul>
-                    </div>
-                    <!-- ELITE Lab -->
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="font-semibold text-gray-900">Research Intern - Explainable AI </h3>
-                            <p class="text-sm text-gray-600">Jan 2026 - Present</p>
-                        </div>
-                        <p class="text-sm text-gray-600">ELITE Research Lab LLC | Queens, NY, USA</p>
-                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
-                        <li class="flex items-start mb-2">
-                          <span class="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-700"></span>
-                          <span class="text-sm text-gray-700 leading-relaxed">
-                            I am collaborating remotely with the Explainable AI and multimodal AI research team on data analysis, including coding, <br>
-                            results reporting, verification, model development, and manuscript preparation.
-                          </span>
-                        </li>
-                        </ul>
-                    </div>
-                    <!-- DIU Research Assistant -->
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="font-semibold text-gray-900">Research Assistant (RA)</h3>
-                            <p class="text-sm text-gray-600">Jul, 2023 - Sep 2025</p>
-                        </div>
-                        <p class="text-sm text-gray-600">Multidisciplinary Action Research (MARS) Lab, Daffodil International University | Dhaka, Bangladesh</p>
-                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
-                            <li>Published in two journals and collaborated with international researchers.</li>
-                            <li>Mentored undergraduates in data analysis, model evaluation, and manuscript writing.</li>
-                        </ul>
-                    </div>
-                    <!-- Lab Teaching Assistant -->
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <h3 class="font-semibold text-gray-900">Lab Teaching Assistant (Lab-TA)</h3>
-                            <p class="text-sm text-gray-600">Fall 2022</p>
-                        </div>
-                        <p class="text-sm text-gray-600">Faculty of Science and Technology, Dept. of CSE | Daffodil International University, Dhaka, Bangladesh</p>
-                        <ul class="text-sm text-gray-700 list-disc list-inside ml-4 mt-2">
-                            <li>Conducted lab sessions on ML and guided students in Python, TensorFlow, and Keras.</li>
-                            <li>Provided technical support in debugging and evaluating student projects.</li>
-                            <li>Course Teacher: Associate Professor Dr. Md. Atiqur Rahman</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                    </section>
+
+            </div>
         </div>
-            <p class="text-sm text-gray-600 mt-2 text-right">Last update: 27/08/2025</p>
-    </div>
 
-               
+        <footer class="mt-32 pt-16 border-t border-slate-200 dark:border-white/5">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+<!--                     <h3 class="text-slate-900 dark:text-white font-bold text-lg">Monoronjon Dutta</h3> -->
+                    <div class="flex gap-6 text-slate-400 dark:text-slate-500">
+                        <a href="https://www.linkedin.com/in/monoronjon-dutta/" target="_blank" class="hover:text-blue-600 transition transform hover:scale-110"><i data-lucide="linkedin"></i></a>
+                        <a href="https://github.com/Monoronjon" target="_blank" class="hover:text-slate-900 dark:hover:text-white transition transform hover:scale-110"><i data-lucide="github"></i></a>
+                        <a href="https://scholar.google.com/citations?user=Tu4Tn7UAAAAJ" target="_blank" class="hover:text-blue-600 transition transform hover:scale-110"><i data-lucide="graduation-cap"></i></a>
+                        <a href="mailto:monoronjon.cse@gmail.com" class="hover:text-blue-600 transition transform hover:scale-110"><i data-lucide="mail"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-right space-y-2">
+                    <!-- <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Researcher ID: <span class="text-slate-900 dark:text-white">MD-2026-XAI</span></p> -->
+                    <p class="text-[10px] text-slate-500 tracking-tight">&copy; 2026 Monoronjon Dutta. Updated Feb 17, 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
 
-            
+    <script>
+        lucide.createIcons();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        function updateIcons() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+            }
+        }
+
+        // Theme init
+        if (localStorage.getItem('color-theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+        updateIcons();
+
+        themeToggleBtn.addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            updateIcons();
+        });
+    </script>
 </body>
 </html>
-
-
